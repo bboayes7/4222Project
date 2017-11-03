@@ -9,6 +9,7 @@ public class Album {
 	String title;
 	String format;
 	int albumId;
+	int pSSN; // each album has one artist as producer, no need to make another table!!!!!!
 	
 	public Album(int id, Date copyrightDate, String title, String format, int albumId) {
 		super();

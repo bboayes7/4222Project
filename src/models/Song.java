@@ -2,14 +2,35 @@ package models;
 
 public class Song {
 	
-	String title;
-	Musician author;
+	int albumId;
+	int songId;
 	
-	public Song(String title, Musician author) {
+
+	String title;
+	//Musician author; make a table to combine artists with song on database
+	
+	public Song(String title,	int albumId,int songId) {
 		this.title = title;
-		this.author = author;
+		this.songId = songId;
+		this.albumId = albumId;
+
+	}
+	public int getAlbumId() {
+		return albumId;
 	}
 
+	public void setAlbumId(int albumId) {
+		this.albumId = albumId;
+	}
+
+	public int getSongId() {
+		return songId;
+	}
+
+	public void setSongId(int songId) {
+		this.songId = songId;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -18,13 +39,7 @@ public class Song {
 		this.title = title;
 	}
 
-	public Musician getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Musician author) {
-		this.author = author;
-	}
+	
 	
 	
 }

@@ -6,6 +6,7 @@ public class Musician {
 	String name;
 	int phone;
 	String address;
+	boolean ifPoor;
 	
 	public Musician(int ssn, String name, int phone, String address) {
 		super();
@@ -13,6 +14,7 @@ public class Musician {
 		this.name = name;
 		this.phone = phone;
 		this.address = address;
+		this.ifPoor=true;
 	}
 
 	public int getSsn() {
@@ -46,6 +48,12 @@ public class Musician {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public boolean isIfPoor() {
+		return ifPoor;
+	}
+
+	
 
 	
 }
