@@ -1,6 +1,13 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -9,13 +16,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Album;
+import models.Instrument;
+import models.Musician;
+import models.Song;
+
 @WebServlet("/test")
 public class test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public test() {
-		super();
-	}
 	
 	//Load mySql driver class
 	public void init(ServletConfig config) throws ServletException{
@@ -31,12 +40,62 @@ public class test extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		List<Album> albums = new ArrayList<Album>();
+		List<Song> songs = new ArrayList<Song>();
+		List<Musician> musicians = new ArrayList<Musician>();
+		List<Instrument> instruments = new ArrayList<Instrument>();
+		Connection c = null;
+		try {
+			String url = "jdbc:postgresql://cs1.calstatela.edu/cs4222s04";
+			String username = "cs4222s04";
+			String password = "pU0ScEVQ";
+			c = DriverManager.getConnection(url, username, password);
+			Statement stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM album;");
+			
+			while(rs.next()) {
+				Album entry = new Album(rs.getInt("id"), rs.getDate("copyrightDate"), rs.getString("title"), rs.getString("format"), rs.getInt("albumId"));
+				albums.add(entry);
+			}
+			
+			rs = stmt.executeQuery("SELECT * FROM song;");
+			
+			while(rs.next()) {
+				Song entry = new Song(rs.getString("title"), rs.getInt("albumId"), rs.getInt("songId"));
+				songs.add(entry);
+			}
+			
+			rs = stmt.executeQuery("SELECT * FROM musician;");
+			
+			while(rs.next()) {
+				Musician entry = new Musician(rs.getInt("ssn"), rs.getString("name"), rs.getInt("phone"), rs.getString("address"));
+				musicians.add(entry);
+			}
+			
+			rs = stmt.executeQuery("SELECT * FROM instrument;");
+			
+			while(rs.next()) {
+				Instrument entry = new Instrument(rs.getInt("id"), rs.getString("name"), rs.getString("musicalKey"));
+				instruments.add(entry);
+			}
+		} catch (SQLException e) {
+			throw new ServletException(e);
+		} finally {
+			try {
+				if(c != null)
+					c.close();
+			} catch(SQLException e) {
+				throw new ServletException(e);
+			}
+		}
 		
+		request.setAttribute("albums", albums);
+		request.setAttribute("songs", songs);
+		request.setAttribute("musicians", musicians);
+		request.setAttribute("instruments", instruments);
+		request.getRequestDispatcher("/WEB-INF/helloo.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
+
 
 }
