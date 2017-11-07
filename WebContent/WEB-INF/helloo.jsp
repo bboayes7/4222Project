@@ -36,6 +36,16 @@
 	</tbody>
 
 </table>
+
+<form action="AddAlbum">
+	<div class="form-group" method="get">
+	<input type="text" class="form-control" name="title" placeholder="Enter Title"></input>
+	<input type="date" class="form-control" name="date" placeholder="Enter CopyRightDate"></input>
+	<input type="text" class="form-control" name="format" placeholder="Enter Format"></input>
+	<button type="submit">Add Album</button>
+	</div>
+
+</form>
 <h1>Songs</h1>
 <table>
 	<thead>
@@ -59,7 +69,13 @@
 	</tbody>
 
 </table>
+<form action="AddSong">
+	<div class="form-group" method="get">
+	<input type="text" class="form-control" name="title" placeholder="Enter Title"></input>
+	<button type="submit">Add Song</button>
+	</div>
 
+</form>
 <h1>Musicians</h1>
 <table>
 	<thead>
@@ -85,7 +101,16 @@
 	</tbody>
 
 </table>
+<form action="AddMusician">
+	<div class="form-group" method="get">
+	<input type="text" class="form-control" name="ssn" placeholder="Enter SSN"></input>
+	<input type="text" class="form-control" name="name" placeholder="Enter Name"></input>
+	<input type="text" class="form-control" name="phone" placeholder="Enter Phone"></input>
+	<input type="text" class="form-control" name="address" placeholder="Enter Address"></input>
+	<button type="submit">Add Musician</button>
+	</div>
 
+</form>
 <h1>Insruments</h1>
 <table>
 	<thead>
