@@ -21,6 +21,7 @@ CREATE TABLE Album (
     title varchar(255) NOT NULL,
     format varchar(255) NOT NULL
 );
+
 CREATE TABLE Instrument (
     id int PRIMARY KEY  ,
     name varchar(255) NOT NULL,
@@ -42,5 +43,15 @@ CREATE TABLE performedby(
     Mssn int  REFERENCES Musician (ssn) ON DELETE CASCADE ON UPDATE CASCADE,
     song_id int REFERENCES Song (song_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+insert into Musician values (1,'juan',123456789,'201 fake street',true);
+insert into Album values (1,1,1,NOW(),'NUBMERONE','CD');
+insert into Instrument values (1,'Bass','C4');
+insert into Song values (1,1,'FIRST HIT');
+insert into Playedby values (1,1);
+insert into performedby values (1,1);
+
+
+
 
 
