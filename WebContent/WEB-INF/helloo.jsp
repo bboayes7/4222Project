@@ -10,7 +10,7 @@
 
 <body>
 <h1>Albums</h1>
-<table>
+<table border="1">
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -39,15 +39,15 @@
 
 <form action="AddAlbum">
 	<div class="form-group" method="get">
-	<input type="text" class="form-control" name="title" placeholder="Enter Title"></input>
-	<input type="date" class="form-control" name="date" placeholder="Enter CopyRightDate"></input>
-	<input type="text" class="form-control" name="format" placeholder="Enter Format"></input>
+	<input type="text" class="form-control" name="title" placeholder="Enter Title" required></input>
+	<input type="date" class="form-control" name="date" placeholder="Enter CopyRightDate" required></input>
+	<input type="text" class="form-control" name="format" placeholder="Enter Format" required></input>
 	<button type="submit">Add Album</button>
 	</div>
 
 </form>
 <h1>Songs</h1>
-<table>
+<table border="1">
 	<thead>
 		<tr>
 			<th>TITLE</th>
@@ -71,13 +71,19 @@
 </table>
 <form action="AddSong">
 	<div class="form-group" method="get">
-	<input type="text" class="form-control" name="title" placeholder="Enter Title"></input>
+	<input type="text" class="form-control" name="title" placeholder="Enter Title" required></input>
+	<select name='key'>    
+	<c:forEach items="${albums}" var="albums">
+        <option>${albums.id}</option>
+    </c:forEach>
+    </select> 
+    
 	<button type="submit">Add Song</button>
 	</div>
 
 </form>
 <h1>Musicians</h1>
-<table>
+<table border="1">
 	<thead>
 		<tr>
 			<th>SSN</th>
@@ -103,16 +109,16 @@
 </table>
 <form action="AddMusician">
 	<div class="form-group" method="get">
-	<input type="text" class="form-control" name="ssn" placeholder="Enter SSN"></input>
-	<input type="text" class="form-control" name="name" placeholder="Enter Name"></input>
-	<input type="text" class="form-control" name="phone" placeholder="Enter Phone"></input>
-	<input type="text" class="form-control" name="address" placeholder="Enter Address"></input>
+	<input type="text" class="form-control" name="ssn" placeholder="Enter SSN" required></input>
+	<input type="text" class="form-control" name="name" placeholder="Enter Name" required></input>
+	<input type="text" class="form-control" name="phone" placeholder="Enter Phone" required></input>
+	<input type="text" class="form-control" name="address" placeholder="Enter Address" required></input>
 	<button type="submit">Add Musician</button>
 	</div>
 
 </form>
 <h1>Instruments</h1>
-<table>
+<table border="1">
 	<thead>
 		<tr>
 			<th>ID</th>
