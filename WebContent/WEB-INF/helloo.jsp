@@ -111,7 +111,7 @@
 	</div>
 
 </form>
-<h1>Insruments</h1>
+<h1>Instruments</h1>
 <table>
 	<thead>
 		<tr>
@@ -124,14 +124,14 @@
 	<tbody>
 		<c:forEach items="${instruments}" var="instruments">
 			<tr>
-			<td>${musicians.id}</td>
-			<td>${musicians.name}</td>
-			<td>${musicians.musicalKey}</td>
+			<td>${instruments.id}</td>
+			<td>${instruments.name}</td>
+			<td>${instruments.musicalKey}</td>
 			</tr>
 		
 		</c:forEach>
 	
-	</tbody>
+	</tbody> 
 
 </table>
 

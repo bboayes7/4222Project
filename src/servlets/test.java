@@ -61,7 +61,7 @@ public class test extends HttpServlet {
 			rs = stmt.executeQuery("SELECT * FROM song;");
 			
 			while(rs.next()) {
-				Song entry = new Song(rs.getString("title"), rs.getInt("albumId"), rs.getInt("songId"));
+				Song entry = new Song(rs.getString("title"), rs.getInt("album_id"), rs.getInt("song_id"));
 				songs.add(entry);
 			}
 			
