@@ -11,13 +11,15 @@ public class Album {
 	int albumId;
 	int pSSN; // each album has one artist as producer, no need to make another table!!!!!!
 	
-	public Album(int id, Date copyrightDate, String title, String format, int albumId) {
+	public Album(int id, Date copyrightDate, String title, String format, int albumId,int pSSN) {
 		super();
 		this.id = id;
 		this.copyrightDate = copyrightDate;
 		this.title = title;
 		this.format = format;
 		this.albumId = albumId;
+		this.pSSN = pSSN;
+
 	}
 
 	public int getId() {
@@ -58,6 +60,14 @@ public class Album {
 
 	public void setAlbumId(int albumId) {
 		this.albumId = albumId;
+	}
+
+	public int getpSSN() {
+		return pSSN;
+	}
+
+	public void setpSSN(int pSSN) {
+		this.pSSN = pSSN;
 	}
 	
 	

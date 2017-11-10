@@ -14,8 +14,8 @@ CREATE TABLE Musician (
 );
 
 CREATE TABLE Album (
-    id int PRIMARY KEY ,
-    albumId int NOT NULL,
+    id SERIAL PRIMARY KEY ,
+    albumId SERIAL NOT NULL,
     pSSN int  REFERENCES Musician (ssn) ON DELETE CASCADE ON UPDATE CASCADE,
     copyrightDate date NOT NULL,
     title varchar(255) NOT NULL,
@@ -23,13 +23,13 @@ CREATE TABLE Album (
 );
 
 CREATE TABLE Instrument (
-    id int PRIMARY KEY  ,
+    id  SERIAL  PRIMARY KEY  ,
     name varchar(255) NOT NULL,
     musicalKey varchar(255) NOT NULL
 );
 
 CREATE TABLE Song(
-    song_id int PRIMARY KEY,
+    song_id  SERIAL  PRIMARY KEY,
     album_id int REFERENCES Album (id) ON DELETE CASCADE ON UPDATE CASCADE,
     title varchar(255) NOT NULL
 );
@@ -44,12 +44,12 @@ CREATE TABLE performedby(
     song_id int REFERENCES Song (song_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into Musician values (1,'juan',123456789,'201 fake street',true);
-insert into Album values (1,1,1,NOW(),'NUBMERONE','CD');
+insert into Musician values (012345678,'juan',123456789,'201 fake street',true);
+insert into Album values (0,0,012345678,NOW(),'NUBMERONE','CD');
 insert into Instrument values (1,'Bass','C4');
-insert into Song values (1,1,'FIRST HIT');
-insert into Playedby values (1,1);
-insert into performedby values (1,1);
+insert into Song values (0,0,'FIRST HIT');
+insert into Playedby values (012345678,1);
+insert into performedby values (012345678,0);
 
 
 

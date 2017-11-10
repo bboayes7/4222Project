@@ -17,7 +17,10 @@
 			<th>COPYRIGHT DATE</th>
 			<th>TITLE</th>
 			<th>FORMAT</th>
-			<th>ALBUM ID</th>	
+			<th>ALBUM ID</th>
+			<th>Producer</th>
+			<th>Delete</th>	
+				
 		</tr>
 	</thead>
 	
@@ -29,6 +32,10 @@
 			<td>${albums.title}</td>
 			<td>${albums.format}</td>
 			<td>${albums.albumId}</td>
+			<td>${albums.pSSN}</td>
+			
+			<td> <a href="DeleteAlbum?id=${albums.id}">Delete</a></td>
+			
 			</tr>
 		
 		</c:forEach>
@@ -42,6 +49,11 @@
 	<input type="text" class="form-control" name="title" placeholder="Enter Title" required></input>
 	<input type="date" class="form-control" name="date" placeholder="Enter CopyRightDate" required></input>
 	<input type="text" class="form-control" name="format" placeholder="Enter Format" required></input>
+<select name='key'>    
+	<c:forEach items="${musicians}" var="musicians">
+        <option>${musicians.ssn}</option>
+    </c:forEach>
+    </select> 	
 	<button type="submit">Add Album</button>
 	</div>
 
@@ -51,8 +63,10 @@
 	<thead>
 		<tr>
 			<th>TITLE</th>
-			<th>ALBUM ID</th>
-			<th>SONG ID</th>
+			<th>Song ID</th>
+			<th>ALBUM  ID</th>
+			<th>Delete</th>	
+			
 		</tr>
 	</thead>
 	
@@ -62,6 +76,8 @@
 			<td>${songs.title}</td>
 			<td>${songs.songId}</td>
 			<td>${songs.albumId}</td>
+			<td><a href=DeleteSong?id=${songs.songId}>Delete</a></td>
+			
 			</tr>
 		
 		</c:forEach>
@@ -69,7 +85,7 @@
 	</tbody>
 
 </table>
-<form action="AddSong">
+<form action="Addsong">
 	<div class="form-group" method="get">
 	<input type="text" class="form-control" name="title" placeholder="Enter Title" required></input>
 	<select name='key'>    
@@ -90,6 +106,8 @@
 			<th>NAME</th>
 			<th>PHONE</th>
 			<th>ADDRESS</th>
+			<th>Delete</th>	
+			
 		</tr>
 	</thead>
 	
@@ -100,6 +118,8 @@
 			<td>${musicians.name}</td>
 			<td>${musicians.phone}</td>
 			<td>${musicians.address}</td>
+			<td> <a href="DeleteMusician?id=${musicians.ssn}">Delete</a></td>
+			
 			</tr>
 		
 		</c:forEach>
