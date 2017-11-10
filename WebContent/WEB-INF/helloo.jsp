@@ -161,6 +161,49 @@
 
 </table>
 
+<h1>Songs Performed by</h1>
+<table border="1">
+	<thead>
+		<tr>
+			<th>NAME</th>
+			<th>Song Title</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<c:forEach items="${performedby}" var="performedby">
+			<tr>
+			<td>${performedby.name}</td>
+			<td>${performedby.title}</td>
 
+			</tr>
+		
+		</c:forEach>
+	
+	</tbody> 
+
+</table>
+<h1>Instruments Played by</h1>
+<table border="1">
+	<thead>
+		<tr>
+			<th>NAME</th>
+			<th>Song Title</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<c:forEach items="${Playedby}" var="Playedby">
+			<tr>
+			<td>${Playedby.name}</td>
+			<td>${Playedby.title}</td>
+
+			</tr>
+		
+		</c:forEach>
+	
+	</tbody> 
+
+</table>
 </body>
 </html>
