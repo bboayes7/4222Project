@@ -4,11 +4,11 @@ public class Musician {
 
 	int ssn;
 	String name;
-	int phone;
+	long phone;
 	String address;
 	boolean ifPoor;
 	
-	public Musician(int ssn, String name, int phone, String address) {
+	public Musician(int ssn, String name, long phone, String address) {
 		super();
 		this.ssn = ssn;
 		this.name = name;
@@ -33,11 +33,11 @@ public class Musician {
 		this.name = name;
 	}
 
-	public int getPhone() {
+	public long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 

@@ -33,6 +33,8 @@ public class Addsong extends HttpServlet {
 		// TODO Auto-generated method stub
 		int album_id = Integer.parseInt( request.getParameter("key"));
 		String title = request.getParameter("title");
+		String producer = request.getParameter("key2");
+
 		Connection c = null;
 	        try
 	        {
@@ -42,11 +44,12 @@ public class Addsong extends HttpServlet {
 				
 				c = DriverManager.getConnection(url, username, password);
 
-	            String sql = "insert into Song values (DEFAULT,?, ?)";
+	            String sql = "insert into Song values (DEFAULT,?, ?,?)";
 	            PreparedStatement pstmt = c.prepareStatement(sql);
 	            
 	            pstmt.setInt(1, album_id);
 	            pstmt.setString(2, title);
+	            pstmt.setString(3, producer);
 
 	            pstmt.executeUpdate();
 	            

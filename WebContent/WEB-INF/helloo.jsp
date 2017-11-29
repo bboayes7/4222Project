@@ -65,6 +65,7 @@
 			<th>TITLE</th>
 			<th>Song ID</th>
 			<th>ALBUM  ID</th>
+			<th>Artist</th>
 			<th>Delete</th>	
 			
 		</tr>
@@ -76,6 +77,7 @@
 			<td>${songs.title}</td>
 			<td>${songs.songId}</td>
 			<td>${songs.albumId}</td>
+			<td>${songs.artist}	</td>
 			<td><a href=DeleteSong?id=${songs.songId}>Delete</a></td>
 			
 			</tr>
@@ -91,6 +93,11 @@
 	<select name='key'>    
 	<c:forEach items="${albums}" var="albums">
         <option>${albums.id}</option>
+    </c:forEach>
+    </select>
+    <select name='key2'>    
+	<c:forEach items="${musicians}" var="musicians">
+        <option>${musicians.name}</option>
     </c:forEach>
     </select> 
     
